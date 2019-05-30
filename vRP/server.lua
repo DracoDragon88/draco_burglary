@@ -5,6 +5,9 @@ vRP = Proxy.getInterface("vRP")
 
 AddEventHandler("burglary:money", function(sum, player)
 	local user_id = vRP.getUserId({player})
+	if sum > 20000 then
+		sum = 20000
+	end
 	if Config.GiveInDirty then
 		vRP.giveInventoryItem({user_id,"dirty_money",sum,true})
 	else
